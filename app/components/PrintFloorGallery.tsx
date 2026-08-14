@@ -23,7 +23,7 @@ const mediaItems: MediaItem[] = [
     categoryLabel: "Live Printing Videos",
     type: "video",
     badge: "#FactoryFloor",
-    src: "/images/t and.png",
+    src: "/images/t and.webp",
     videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     aspect: "col-span-1 md:col-span-2 row-span-2",
   },
@@ -34,7 +34,7 @@ const mediaItems: MediaItem[] = [
     categoryLabel: "Craft & Details",
     type: "photo",
     badge: "#RealFacility",
-    src: "/images/f sare.png",
+    src: "/images/f sare.webp",
     aspect: "col-span-1 row-span-1",
   },
   {
@@ -44,7 +44,7 @@ const mediaItems: MediaItem[] = [
     categoryLabel: "Machinery & Facility",
     type: "photo",
     badge: "#PrecisionMachinery",
-    src: "/images/ksdlksa.png",
+    src: "/images/ksdlksa.webp",
     aspect: "col-span-1 row-span-1",
   },
   {
@@ -54,7 +54,7 @@ const mediaItems: MediaItem[] = [
     categoryLabel: "Live Printing Videos",
     type: "video",
     badge: "#LiveFootage",
-    src: "/images/stoles.png",
+    src: "/images/stoles.webp",
     videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
     aspect: "col-span-1 row-span-1",
   },
@@ -65,7 +65,7 @@ const mediaItems: MediaItem[] = [
     categoryLabel: "Craft & Details",
     type: "photo",
     badge: "#DirectReactive",
-    src: "/images/home.png",
+    src: "/images/home.webp",
     aspect: "col-span-1 md:col-span-2 row-span-1",
   },
   {
@@ -75,7 +75,7 @@ const mediaItems: MediaItem[] = [
     categoryLabel: "Machinery & Facility",
     type: "photo",
     badge: "#FactoryFloor",
-    src: "/images/custom.png",
+    src: "/images/custom.webp",
     aspect: "col-span-1 row-span-1",
   },
 ];

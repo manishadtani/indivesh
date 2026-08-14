@@ -30,7 +30,7 @@ export default function BrandPhilosophy() {
         height: "60vh",
         minHeight: "60vh",
       }}
-      className="w-full overflow-visible"
+      className="w-full overflow-visible relative"
     >
       {/* Floating card */}
       <div
@@ -40,7 +40,7 @@ export default function BrandPhilosophy() {
           marginTop: "-10vh",
           height: "60vh",
           position: "relative",
-          backgroundImage: "url('/images/hero-img.png')",
+          backgroundImage: "url('/images/hero-img.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

@@ -64,16 +64,36 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Product Offerings */}
+          {/* Contact Info Column */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-sans uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
-              Core Offerings
+              Official Contact
             </h4>
-            <ul className="space-y-2 text-xs font-sans text-[#FAF8F3]/70 font-medium">
-              <li>Fashion Apparel (Sarees, Dupattas, Kurtis, Suits)</li>
-              <li>Home Furnishings (Bedsheets, Curtains, Cushions)</li>
-              <li>Lifestyle Accessories (Totes, Scarves, Stoles)</li>
-              <li>Bespoke Designer Pattern & Batch Printing</li>
+            <ul className="space-y-2.5 text-xs font-sans text-[#FAF8F3]/80 font-medium">
+              <li>
+                <span className="text-[#C85A32] font-bold block text-[10px] uppercase">Email:</span>
+                <a
+                  href="mailto:indiveshofficial@gmail.com"
+                  className="hover:text-[#D4AF37] transition-colors text-sm font-semibold"
+                >
+                  indiveshofficial@gmail.com
+                </a>
+              </li>
+              <li>
+                <span className="text-[#C85A32] font-bold block text-[10px] uppercase">WhatsApp & Call:</span>
+                <a
+                  href="https://wa.me/919079674714"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D4AF37] transition-colors text-sm font-semibold"
+                >
+                  +91 90796 74714
+                </a>
+              </li>
+              <li>
+                <span className="text-[#C85A32] font-bold block text-[10px] uppercase">Studio Location:</span>
+                <span>Jaipur, Rajasthan, India</span>
+              </li>
             </ul>
           </div>
 

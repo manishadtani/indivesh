@@ -19,7 +19,7 @@ export default function OurWorkGallery() {
       title: "Hero Royal Heritage Print Showcase",
       category: "Fashion & Sarees",
       fabric: "Pure Silk & Chiffon",
-      src: "/images/hero-img.png",
+      src: "/images/hero-img.webp",
       details: "Intricate traditional motif repeat printing with high-vibrancy indigo and terracotta dyes.",
     },
     {
@@ -27,7 +27,7 @@ export default function OurWorkGallery() {
       title: "Ethnic Couture Saree Motif",
       category: "Fashion Textiles",
       fabric: "Chanderi Silk Blend",
-      src: "/images/hero-img.png",
+      src: "/images/hero-img.webp",
       details: "Precision placement print designed for high-end designer saree pallus.",
     },
     {
@@ -35,7 +35,7 @@ export default function OurWorkGallery() {
       title: "Botanical Living Furnishing",
       category: "Home & Living",
       fabric: "Heavyweight Linen",
-      src: "/images/hero-img.png",
+      src: "/images/hero-img.webp",
       details: "Vibrant botanical printed drapes and cushion fabrics engineered for soft furnishings.",
     },
     {
@@ -43,7 +43,7 @@ export default function OurWorkGallery() {
       title: "Designer Geometric Repeat Pattern",
       category: "Patterns",
       fabric: "Combed Cotton Satin",
-      src: "/images/hero-img.png",
+      src: "/images/hero-img.webp",
       details: "Seamless geometric repeat pattern with crisp lines for contemporary apparel.",
     },
     {
@@ -51,7 +51,7 @@ export default function OurWorkGallery() {
       title: "Contemporary Indo-Western Co-ords",
       category: "Fashion Textiles",
       fabric: "Modal Viscose",
-      src: "/images/hero-img.png",
+      src: "/images/hero-img.webp",
       details: "Soft-drape digital reactive print for luxury womenswear collections.",
     },
     {
@@ -59,7 +59,7 @@ export default function OurWorkGallery() {
       title: "Luxury Bedding Collection",
       category: "Home & Living",
       fabric: "100% Cotton Percale",
-      src: "/images/hero-img.png",
+      src: "/images/hero-img.webp",
       details: "Comfortable skin-friendly bedsheet and pillow cover set with fade-resistant pigments.",
     },
   ];

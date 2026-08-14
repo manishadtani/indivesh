@@ -10,7 +10,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const threshold = window.innerHeight * 0.45;
+      const threshold = window.innerHeight * 0.3;
       if (window.scrollY >= threshold) {
         setShowFullNav(true);
       } else {
@@ -183,6 +183,16 @@ export default function Navbar() {
         </div>
 
         <div className="space-y-4 pt-6 border-t border-[#202A3A]/10">
+          <div className="text-xs font-sans space-y-1.5 text-[#202A3A]">
+            <p className="text-[10px] uppercase font-bold text-[#C85A32] tracking-wider">Official Contact:</p>
+            <a href="mailto:indiveshofficial@gmail.com" className="block font-semibold hover:text-[#C85A32]">
+              indiveshofficial@gmail.com
+            </a>
+            <a href="https://wa.me/919079674714" target="_blank" rel="noopener noreferrer" className="block font-semibold hover:text-[#C85A32]">
+              WhatsApp: +91 90796 74714
+            </a>
+          </div>
+
           <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}

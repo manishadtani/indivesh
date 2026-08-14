@@ -11,7 +11,7 @@ const categories = [
     tagline: "Couture, Ethnic & Everyday Wear",
     items: ["Sarees & Dupattas", "Kurtis & Co-ords", "Dresses & Skirts", "Designer Suits"],
     tech: "Direct Reactive · Sublimation",
-    image: "/images/f sare.png",
+    image: "/images/fashionn.webp",
     icon: <Palette className="w-4 h-4 text-[#C85A32]" />,
   },
   {
@@ -21,7 +21,7 @@ const categories = [
     tagline: "Interior Fabrics & Soft Furnishings",
     items: ["Bedsheets & Pillow Covers", "Curtains & Drapes", "Cushion Covers", "Table Linen"],
     tech: "Light-Fast · Soft Pigments",
-    image: "/images/home.png",
+    image: "/images/home.webp",
     icon: <Home className="w-4 h-4 text-[#C85A32]" />,
   },
   {
@@ -31,7 +31,7 @@ const categories = [
     tagline: "Lifestyle & Fabric Accents",
     items: ["Printed Fabric Bags", "Eco-Totes", "Silk & Satin Stoles", "Pocket Squares"],
     tech: "Reinforced Color Vibrancy",
-    image: "/images/accessories.png",
+    image: "/images/accessories.webp",
     icon: <Sparkle className="w-4 h-4 text-[#C85A32]" />,
   },
   {
@@ -41,7 +41,7 @@ const categories = [
     tagline: "Bespoke Collection Printing",
     items: ["Repeat Pattern Prints", "Placement Prints", "Brand Collection Runs", "Pantone Matching"],
     tech: "100% Pantone Precision",
-    image: "/images/custom.png",
+    image: "/images/custom.webp",
     icon: <Layers className="w-4 h-4 text-[#C85A32]" />,
   },
 ];

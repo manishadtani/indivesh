@@ -21,7 +21,7 @@ export default function AboutSection() {
           {/* Left Column: Clean Image Frame */}
           <div className="lg:col-span-5 relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-lg border border-[#202A3A]/10">
             <Image
-              src="/images/phi-img.png"
+              src="/images/phi-img.webp"
               alt="Indivesh Atelier Craftsmanship"
               fill
               className="object-cover object-center"
