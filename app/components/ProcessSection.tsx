@@ -79,7 +79,6 @@ export default function ProcessSection() {
           }}
         >
           <div className="inline-flex items-center gap-2 mb-2 px-3.5 py-1 bg-[#EEE9DF]/90 backdrop-blur-sm border border-[#202A3A]/10 rounded-full">
-            <Sparkles className="w-3.5 h-3.5 text-[#C85A32]" />
             <span className="font-sans text-[10px] tracking-[0.28em] uppercase font-bold text-[#202A3A]">
               OUR PROCESS
             </span>

@@ -1,70 +1,75 @@
 "use client";
 
 import Image from "next/image";
-import { Sparkles, Compass } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function AboutSection() {
+  const stats = [
+    { num: "5+", label: "Years Experience" },
+    { num: "35+", label: "Brand Clients" },
+    { num: "50K+", label: "Meters Printed" },
+  ];
+
   return (
-    <section id="about" className="py-20 sm:py-28 bg-[#EEE9DF] border-t border-[#202A3A]/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section
+      id="about"
+      className="py-16 sm:py-24 bg-[#F7F4EE] relative overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Image Showcase Frame */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FAF8F3] border border-[#202A3A]/10 shadow-xl group">
-              <Image
-                src="/images/hero-img.png"
-                alt="Indivesh Textile Studio Craftsmanship"
-                width={800}
-                height={600}
-                className="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-[#202A3A]/20 pointer-events-none" />
-              
-              <div className="absolute bottom-6 left-6 right-6 bg-[#FAF8F3]/90 backdrop-blur-md p-4 border-l-2 border-[#C85A32]">
-                <p className="text-xs font-sans uppercase tracking-[0.2em] font-bold text-[#202A3A]">
-                  INDIVESH DESIGN STUDIO
-                </p>
-                <p className="font-serif text-sm font-semibold text-[#7A8B7B]">
-                  Bridging Indian Artistry & Modern Textile Technology
-                </p>
-              </div>
-            </div>
+          {/* Left Column: Clean Image Frame */}
+          <div className="lg:col-span-5 relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-lg border border-[#202A3A]/10">
+            <Image
+              src="/images/phi-img.png"
+              alt="Indivesh Atelier Craftsmanship"
+              fill
+              className="object-cover object-center"
+            />
           </div>
 
-          {/* Right Brand Narrative */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center space-x-2 text-[#C85A32]">
-              <Sparkles className="w-4 h-4" />
-              <span className="text-xs sm:text-sm font-sans tracking-[0.3em] uppercase font-bold">
+          {/* Right Column: Clean Light Content */}
+          <div className="lg:col-span-7 block">
+            <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 bg-[#EEE9DF] border border-[#202A3A]/10 rounded-full">
+              <span className="font-sans text-[10px] tracking-[0.28em] uppercase font-bold text-[#202A3A]">
                 ABOUT INDIVESH
               </span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#202A3A] font-light leading-tight">
-              THE ART BEHIND <br />
-              <span className="font-normal italic text-[#C85A32]">THE PRINT.</span>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#202A3A] font-light leading-snug mt-1 mb-4">
+              WHERE HERITAGE MEETS <span className="italic text-[#C85A32] font-normal">PRECISION.</span>
             </h2>
 
-            <div className="w-16 h-[2px] bg-[#C85A32] my-4" />
-
-            <p className="font-sans text-base text-[#202A3A]/80 leading-relaxed font-normal">
-              Indivesh is a premier textile printing and design house dedicated to transforming creative concepts into vibrant, tangible fabrics. Rooted in Indian design aesthetics and powered by modern print engineering, we serve fashion designers, home furnishers, and lifestyle brands who seek uncompromised quality.
+            {/* Crisp 2-Line Narrative Paragraph */}
+            <p className="font-sans sm:text-lg text-[#202A3A]  font-medium leading-relaxed my-5 max-w-xl">
+              Indivesh is a premier B2B textile house bridging Indian design heritage with high-definition digital print engineering. We empower fashion labels, lifestyle brands, and interior furnishers with uncompromised color depth, Pantone accuracy, and natural fabric drape.
             </p>
 
-            <p className="font-sans text-base text-[#202A3A]/80 leading-relaxed font-normal">
-              We believe that fabric is more than material — it is a canvas for cultural story, personal style, and architectural warmth. Whether printing a delicate floral saree or a bold geometric upholstery repeat, our focus remains on color depth, touch softness, and lasting durability.
-            </p>
+            {/* Clean Minimal Stats Callout */}
+            <div className="grid grid-cols-3 gap-6 border-y border-[#202A3A]/10 py-5 my-6">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <span className="block font-serif text-2xl sm:text-3xl font-light text-[#C85A32]">
+                    {s.num}
+                  </span>
+                  <span className="block font-sans text-xs text-[#202A3A] font-semibold mt-0.5">
+                    {s.label}
+                  </span>
+                </div>
+              ))}
+            </div>
 
-            <div className="pt-4 flex items-center space-x-6 border-t border-[#202A3A]/10">
+            {/* Minimal CTA Link */}
+            <div>
               <a
                 href="#contact"
-                className="inline-flex items-center space-x-2 bg-[#202A3A] hover:bg-[#C85A32] text-[#F7F4EE] px-6 py-3 text-xs uppercase tracking-[0.2em] font-bold transition-colors duration-300"
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] font-bold text-[#202A3A] hover:text-[#C85A32] transition-colors group"
               >
-                <span>Connect With Our Designers</span>
-                <Compass className="w-4 h-4 text-[#F7F4EE]" />
+                <span>Connect With Designers</span>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
+
           </div>
 
         </div>
