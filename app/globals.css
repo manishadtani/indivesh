@@ -247,3 +247,35 @@ html, body {
   box-shadow: 0 28px 72px -10px rgba(11,19,43,0.28), 0 10px 30px -6px rgba(11,19,43,0.14) !important;
   transform: translateY(-4px);
 }
+
+/* ─── GOOGLE TRANSLATE CLEAN LUXURY STYLING ─── */
+body {
+  top: 0 !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-te-spinner-pos {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  font-family: inherit !important;
+  font-size: 11px !important;
+  color: #202A3A !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+  background: transparent !important;
+  border: none !important;
+  color: #202A3A !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+
+.goog-te-gadget span {
+  display: none !important;
+}

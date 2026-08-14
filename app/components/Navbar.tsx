@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
+import GoogleTranslate from "./GoogleTranslate";
 
 export default function Navbar() {
   const [showFullNav, setShowFullNav] = useState(false);
@@ -87,18 +88,19 @@ export default function Navbar() {
 
           {/* Right Action CTA */}
           <div
-            className={`hidden md:flex items-center transition-all duration-500 ease-in-out ${
+            className={`hidden md:flex items-center space-x-3 transition-all duration-500 ease-in-out ${
               showFullNav
                 ? "opacity-100 translate-y-0 pointer-events-auto"
                 : "opacity-0 -translate-y-3 pointer-events-none"
             }`}
           >
+            <GoogleTranslate />
             <a
               href="#contact"
-              className="group inline-flex items-center space-x-2 bg-[#202A3A] hover:bg-[#C85A32] text-[#F7F4EE] px-5 py-2.5 rounded-none text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-sm hover:shadow-md active:scale-95"
+              className="group inline-flex items-center space-x-2 bg-[#202A3A] hover:bg-[#C85A32] text-[#F7F4EE] px-5 py-2.5 rounded-lg text-xs uppercase tracking-[0.2em] font-bold border border-[#D4AF37]/30 transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
             >
               <span>Start a Project</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#F7F4EE] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#D4AF37] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5 group-hover:text-[#F7F4EE]" />
             </a>
           </div>
 
@@ -110,7 +112,7 @@ export default function Navbar() {
           >
             <a
               href="#contact"
-              className="bg-[#C85A32] text-[#F7F4EE] px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] font-bold"
+              className="bg-[#C85A32] text-[#F7F4EE] px-3.5 py-1.5 text-[10px] uppercase tracking-[0.18em] font-bold rounded-md shadow-sm"
             >
               Start
             </a>
@@ -160,12 +162,15 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Badge Callout */}
-          <div className="inline-flex items-center space-x-2 bg-[#EEE9DF] border border-[#C85A32]/30 px-3 py-1.5 rounded-full mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#C85A32]" />
-            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-[#202A3A]">
-              Artistry In Textile
-            </span>
+          {/* Mobile Badge Callout & Translate */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="inline-flex items-center space-x-2 bg-[#EEE9DF] border border-[#C85A32]/30 px-3 py-1.5 rounded-full">
+              <Sparkles className="w-3.5 h-3.5 text-[#C85A32]" />
+              <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-[#202A3A]">
+                Artistry In Textile
+              </span>
+            </div>
+            <GoogleTranslate />
           </div>
 
           <nav className="flex flex-col space-y-5">
