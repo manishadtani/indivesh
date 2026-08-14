@@ -9,10 +9,11 @@ import WhyIndivesh from "./components/WhyIndivesh";
 import AboutSection from "./components/AboutSection";
 import EnquirySection from "./components/EnquirySection";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FAF7F2] text-[#1D1C1B] selection:bg-[#C85A32] selection:text-white">
+    <main className="min-h-screen bg-[#F7F4EE] text-[#202A3A] selection:bg-[#C85A32] selection:text-[#F7F4EE]">
       <Navbar />
       <Hero />
       <BrandPhilosophy />
@@ -24,6 +25,7 @@ export default function Home() {
       <AboutSection />
       <EnquirySection />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }

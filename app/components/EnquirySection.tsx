@@ -57,7 +57,7 @@ export default function EnquirySection() {
 
             <div className="space-y-4">
               <a
-                href="https://wa.me/?text=Hello%20Indivesh,%20I%20am%20interested%20in%20custom%20textile%20printing."
+                href="https://wa.me/916377499766?text=Hello%20Indivesh,%20I%20am%20interested%20in%20custom%20textile%20printing%20%26%20design."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-4 bg-[#25D366]/10 border border-[#25D366]/30 p-4 hover:bg-[#25D366]/20 transition-colors group"
