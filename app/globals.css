@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #FAF7F2;
+    --foreground: #1D1C1B;
+    --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+    --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@theme {
+  --color-ivory: #FAF7F2;
+  --color-ivory-light: #FDFBF7;
+  --color-beige-subtle: #F3EDE2;
+  --color-navy-deep: #0B132B;
+  --color-navy-dark: #070C1B;
+  --color-terracotta: #C85A32;
+  --color-terracotta-soft: #E07A5F;
+  --color-taupe: #8A7E72;
+  --color-charcoal: #1D1C1B;
+  --color-gold-accent: #D4AF37;
+  --color-gold-muted: #C5A059;
+
+  --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Luxury Typography Utilities */
+.font-serif {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Keyframes & Animations */
+@keyframes shimmerGold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes strokeReveal {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #0B132B 0%,
+    #C85A32 25%,
+    #D4AF37 50%,
+    #C85A32 75%,
+    #0B132B 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerGold 6s linear infinite;
+}
+
+@keyframes luxuryMaskReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes subtitleExpand {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+    letter-spacing: 0.15em;
+  }
+  100% {
+    opacity: 0.9;
+    transform: translateY(0);
+    letter-spacing: 0.38em;
+  }
+}
+
+.animate-hero-title {
+  animation: luxuryMaskReveal 1.8s cubic-bezier(0.19, 1, 0.22, 1) 0.2s both;
+}
+
+.animate-hero-subtitle {
+  animation: subtitleExpand 2.2s cubic-bezier(0.19, 1, 0.22, 1) 0.6s both;
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Luxury Card & Glass Styling */
+.glass-nav {
+  background: rgba(250, 247, 242, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-badge {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 90, 50, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C85A32;
+}
+
+/* Smooth Touch and Prevent Horizontal Overflow */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  touch-action: manipulation;
+}
+
+/* ─── HERO: Exact viewport height, independent of any other element ─── */
+/* Mobile-first: use svh so the browser chrome doesn't shrink the hero */
+.hero-section {
+  height: 100svh;
+}
+
+/* Desktop: fall back to classic 100vh where svh may not be needed */
+@media (min-width: 768px) {
+  .hero-section {
+    height: 100vh;
+  }
+}
+
+/* ─── FLOATING PHILOSOPHY CARD ─── */
+/* Pulls card UP so ~25% of viewport overlaps hero bottom */
+.philosophy-card-overlap {
+  margin-top: -25svh;
+}
+
+@media (min-width: 768px) {
+  .philosophy-card-overlap {
+    margin-top: -26vh;
+  }
+}
+
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-rise {
+  animation: cardRise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+/* Philosophy floating card — hidden by default, animates when .card-visible is added */
+.philosophy-card {
+  opacity: 0;
+  transform: translateY(48px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.philosophy-card.card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.philosophy-card.card-visible:hover {
+  box-shadow: 0 28px 72px -10px rgba(11,19,43,0.28), 0 10px 30px -6px rgba(11,19,43,0.14) !important;
+  transform: translateY(-4px);
+}
