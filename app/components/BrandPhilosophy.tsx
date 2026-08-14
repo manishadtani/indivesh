@@ -32,15 +32,13 @@ export default function BrandPhilosophy() {
       className="w-full overflow-visible"
     >
       {/* Floating card — pulled 10vh up, animates in on scroll */}
+      {/* w-[92%] on mobile, w-[75%] on md+ desktop */}
       <div
         ref={cardRef}
-        className="philosophy-card"
+        className="philosophy-card w-[92%] md:w-[75%] mx-auto"
         style={{
           marginTop: "-10vh",
-          width: "60%",
           height: "60vh",
-          marginLeft: "auto",
-          marginRight: "auto",
           position: "relative",
           backgroundImage: "url('/images/hero-img.png')",
           backgroundSize: "cover",
