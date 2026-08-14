@@ -57,7 +57,7 @@ export default function ProcessSection() {
       {/* Mobile: bg-[right_center] focuses on right saree art. Desktop: md:bg-center */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-[right_center] md:bg-center opacity-[0.15] pointer-events-none transition-opacity duration-1000"
-        style={{ backgroundImage: "url('/images/hero-img.png')" }}
+        style={{ backgroundImage: "url('/images/ourprocess.png')" }}
       />
       {/* Delicate Gradient Mask */}
       <div
