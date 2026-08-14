@@ -5,7 +5,7 @@ export default function Hero() {
     <section
       id="hero"
       style={{ height: "100vh" }}
-      className="relative w-full bg-[#FAF7F2] overflow-hidden flex items-center"
+      className="relative w-full bg-[#F7F4EE] overflow-hidden flex items-center"
     >
       {/* BACKGROUND IMAGE */}
       <div
@@ -16,10 +16,10 @@ export default function Hero() {
       {/* LEFT-ALIGNED BRANDING LOCKUP */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
         <div className="flex flex-col items-start text-left space-y-2 max-w-[260px] sm:max-w-sm md:max-w-md lg:max-w-lg">
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-[0.16em] sm:tracking-[0.18em] font-light text-[#1B243B] uppercase leading-none animate-hero-title">
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-[0.16em] sm:tracking-[0.18em] font-light text-[#202A3A] uppercase leading-none animate-hero-title">
             INDIVESH
           </h1>
-          <p className="font-sans text-[10px] sm:text-xs md:text-sm tracking-[0.32em] sm:tracking-[0.38em] uppercase font-medium text-[#1B243B] opacity-90 pl-0.5 sm:pl-1 animate-hero-subtitle">
+          <p className="font-sans text-[10px] sm:text-xs md:text-sm tracking-[0.32em] sm:tracking-[0.38em] uppercase font-bold text-[#202A3A] opacity-90 pl-0.5 sm:pl-1 animate-hero-subtitle">
             ARTISTRY IN TEXTILE
           </p>
         </div>

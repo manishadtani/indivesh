@@ -50,18 +50,18 @@ export default function FabricCapabilities() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-[#F3EDE2] border-t border-[#0B132B]/10">
+    <section className="py-20 sm:py-28 bg-[#EEE9DF] border-t border-[#202A3A]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-xs sm:text-sm font-sans tracking-[0.3em] uppercase font-bold text-[#C85A32] mb-3">
             TEXTILE SCIENCE & SPECS
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B132B] font-light">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#202A3A] font-light">
             FABRIC & PRINTING <span className="font-normal italic text-[#C85A32]">CAPABILITIES.</span>
           </h2>
           <div className="w-16 h-[2px] bg-[#C85A32] mx-auto my-5" />
-          <p className="text-sm sm:text-base text-[#8A7E72] font-sans">
+          <p className="text-sm sm:text-base text-[#7A8B7B] font-sans font-medium">
             We support an extensive range of natural, synthetic, and blended textiles with tailored ink chemistry.
           </p>
         </div>
@@ -71,35 +71,35 @@ export default function FabricCapabilities() {
           {fabrics.map((fab) => (
             <div
               key={fab.name}
-              className="bg-[#FAF7F2] p-8 border border-[#0B132B]/10 hover:border-[#C85A32] transition-colors duration-300 relative group flex flex-col justify-between"
+              className="bg-[#FAF8F3] p-8 border border-[#202A3A]/10 hover:border-[#C85A32] transition-colors duration-300 relative group flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-[#0B132B]/10 pb-4 mb-4">
-                  <h3 className="font-serif text-2xl font-semibold text-[#0B132B]">
+                <div className="flex items-center justify-between border-b border-[#202A3A]/10 pb-4 mb-4">
+                  <h3 className="font-serif text-2xl font-semibold text-[#202A3A]">
                     {fab.name}
                   </h3>
-                  <span className="text-xs font-sans uppercase tracking-wider text-[#C85A32] font-bold bg-[#F3EDE2] px-2.5 py-1">
+                  <span className="text-xs font-sans uppercase tracking-wider text-[#C85A32] font-bold bg-[#EEE9DF] px-2.5 py-1">
                     {fab.gsm}
                   </span>
                 </div>
 
                 <div className="space-y-3 text-xs font-sans">
                   <div>
-                    <span className="text-[#8A7E72] uppercase tracking-wider block">Print Technology:</span>
-                    <span className="text-[#0B132B] font-medium">{fab.technique}</span>
+                    <span className="text-[#7A8B7B] uppercase tracking-wider block font-semibold">Print Technology:</span>
+                    <span className="text-[#202A3A] font-semibold">{fab.technique}</span>
                   </div>
                   <div>
-                    <span className="text-[#8A7E72] uppercase tracking-wider block">Ideal Applications:</span>
-                    <span className="text-[#0B132B] font-medium">{fab.bestFor}</span>
+                    <span className="text-[#7A8B7B] uppercase tracking-wider block font-semibold">Ideal Applications:</span>
+                    <span className="text-[#202A3A] font-semibold">{fab.bestFor}</span>
                   </div>
                   <div>
-                    <span className="text-[#8A7E72] uppercase tracking-wider block">Hand Feel & Finish:</span>
-                    <span className="text-[#0B132B] font-medium">{fab.feel}</span>
+                    <span className="text-[#7A8B7B] uppercase tracking-wider block font-semibold">Hand Feel & Finish:</span>
+                    <span className="text-[#202A3A] font-semibold">{fab.feel}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[#0B132B]/10 flex items-center justify-between text-[11px] text-[#8A7E72]">
+              <div className="mt-6 pt-4 border-t border-[#202A3A]/10 flex items-center justify-between text-[11px] text-[#7A8B7B] font-semibold">
                 <span>Pantone Matching Supported</span>
                 <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
               </div>

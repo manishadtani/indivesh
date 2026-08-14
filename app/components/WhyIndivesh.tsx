@@ -37,18 +37,18 @@ export default function WhyIndivesh() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FAF7F2]">
+    <section className="py-20 sm:py-28 bg-[#F7F4EE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-xs sm:text-sm font-sans tracking-[0.3em] uppercase font-bold text-[#C85A32] mb-3">
             THE INDIVESH ADVANTAGE
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B132B] font-light">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#202A3A] font-light">
             CRAFTED WITH <span className="font-normal italic text-[#C85A32]">INTENTION.</span>
           </h2>
           <div className="w-16 h-[2px] bg-[#C85A32] mx-auto my-5" />
-          <p className="text-sm sm:text-base text-[#8A7E72] font-sans">
+          <p className="text-sm sm:text-base text-[#7A8B7B] font-sans font-medium">
             Built on verified craftsmanship, design integrity, and dependable trade partnership.
           </p>
         </div>
@@ -57,15 +57,15 @@ export default function WhyIndivesh() {
           {pillars.map((p) => (
             <div
               key={p.title}
-              className="bg-[#F3EDE2] p-8 border border-[#0B132B]/10 hover:border-[#C85A32] transition-all duration-300 group"
+              className="bg-[#EEE9DF] p-8 border border-[#202A3A]/10 hover:border-[#C85A32] transition-all duration-300 group"
             >
-              <div className="w-12 h-12 bg-[#0B132B] text-white flex items-center justify-center mb-6 group-hover:bg-[#C85A32] transition-colors duration-300">
+              <div className="w-12 h-12 bg-[#202A3A] text-[#F7F4EE] flex items-center justify-center mb-6 group-hover:bg-[#C85A32] transition-colors duration-300">
                 {p.icon}
               </div>
-              <h3 className="font-serif text-2xl font-semibold text-[#0B132B] mb-3">
+              <h3 className="font-serif text-2xl font-semibold text-[#202A3A] mb-3">
                 {p.title}
               </h3>
-              <p className="font-sans text-sm text-[#8A7E72] leading-relaxed">
+              <p className="font-sans text-sm text-[#202A3A]/75 leading-relaxed font-normal">
                 {p.desc}
               </p>
             </div>

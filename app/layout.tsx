@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -10,10 +10,10 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -31,11 +31,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${inter.variable} scroll-smooth antialiased`}
+      className={`${cormorant.variable} ${manrope.variable} scroll-smooth antialiased`}
       suppressHydrationWarning
     >
       <body
-        className="min-h-screen bg-[#FAF7F2] text-[#1D1C1B] font-sans selection:bg-[#C85A32] selection:text-white flex flex-col overflow-x-hidden"
+        className="min-h-screen bg-[#F7F4EE] text-[#202A3A] font-sans selection:bg-[#C85A32] selection:text-[#F7F4EE] flex flex-col overflow-x-hidden"
         suppressHydrationWarning
       >
         {children}

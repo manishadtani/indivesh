@@ -1,182 +1,240 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Sparkles, Palette, Home, Sparkle, Layers } from "lucide-react";
+
+const categories = [
+  {
+    id: "fashion",
+    num: "01",
+    name: "Fashion & Apparel",
+    tagline: "Couture, Ethnic & Everyday Wear",
+    description: "High-definition reactive & sublimation printing for luxury fashion houses and ethnic wear.",
+    items: ["Sarees & Dupattas", "Kurtis & Co-ords", "Dresses & Skirts", "Designer Suits"],
+    tech: "Direct Reactive · Digital Sublimation",
+    icon: <Palette className="w-4 h-4 text-[#C85A32]" />,
+  },
+  {
+    id: "home",
+    num: "02",
+    name: "Home & Living",
+    tagline: "Interior Fabrics & Soft Furnishings",
+    description: "Wash-durable pigment & reactive printing engineered for soft furnishings and drapes.",
+    items: ["Bedsheets & Pillow Covers", "Curtains & Drapes", "Cushion Covers", "Table Linen"],
+    tech: "Light-Fast · Soft Finish Pigments",
+    icon: <Home className="w-4 h-4 text-[#C85A32]" />,
+  },
+  {
+    id: "accessories",
+    num: "03",
+    name: "Accessories",
+    tagline: "Lifestyle & Fabric Accents",
+    description: "Vibrant prints on silk, canvas, and satin blends for fashion accents and brand merch.",
+    items: ["Printed Fabric Bags", "Eco-Totes", "Silk & Satin Stoles", "Pocket Squares"],
+    tech: "Reinforced Color Vibrancy · Trim Printing",
+    icon: <Sparkle className="w-4 h-4 text-[#C85A32]" />,
+  },
+  {
+    id: "custom",
+    num: "04",
+    name: "Custom & Designer",
+    tagline: "Bespoke Collection Printing",
+    description: "Tailored print runs for independent designers requiring 100% exact Pantone matching.",
+    items: ["Repeat Pattern Prints", "Placement Prints", "Brand Collection Runs", "Pantone Matching"],
+    tech: "100% Pantone Precision Matching",
+    icon: <Layers className="w-4 h-4 text-[#C85A32]" />,
+  },
+];
 
 export default function WhatWeCreate() {
-  const [activeTab, setActiveTab] = useState("fashion");
+  const [active, setActive] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [sectionVisible, setSectionVisible] = useState(false);
 
-  const categories = [
-    {
-      id: "fashion",
-      name: "Fashion & Apparel",
-      tagline: "Couture, Ethnic & Everyday Wear",
-      description:
-        "High-definition textile printing for fashion designers, luxury labels, and ethnic wear houses. Engineered for perfect drape and rich color fastness.",
-      items: [
-        "Sarees & Dupattas",
-        "Dresses & Skirts",
-        "Kurtis & Co-ords",
-        "Shirts & T-Shirts",
-        "Scarves & Stoles",
-        "Designer Suits",
-      ],
-      highlights: "Direct Reactive, Digital Sublimation & Pigment Printing",
-    },
-    {
-      id: "home",
-      name: "Home & Living",
-      tagline: "Interior Fabrics & Soft Furnishings",
-      description:
-        "Transforming living spaces with custom printed bed linens, heavy-drape curtains, sofa upholstery, and luxury cushion covers.",
-      items: [
-        "Bedsheets & Pillow Covers",
-        "Curtains & Drapes",
-        "Cushion & Sofa Covers",
-        "Table Linen & Runners",
-        "Chair Cover Textiles",
-        "Home Furnishing Fabrics",
-      ],
-      highlights: "Light-fast, Wash-durable Soft Textiles",
-    },
-    {
-      id: "accessories",
-      name: "Accessories",
-      tagline: "Lifestyle & Fabric Accents",
-      description:
-        "Vibrant prints on canvas, cotton, and silk blends for fashion tote bags, headscarves, and customized fabric merchandise.",
-      items: [
-        "Printed Fabric Bags",
-        "Eco-Totes",
-        "Silk & Satin Stoles",
-        "Pocket Squares",
-        "Fabric Accessories",
-        "Brand Merch Textiles",
-      ],
-      highlights: "Reinforced Color Vibrancy & Custom Trim Printing",
-    },
-    {
-      id: "custom",
-      name: "Custom & Designer",
-      tagline: "Bespoke Collection Printing",
-      description:
-        "Tailored print production for fashion houses, textile studios, and independent artist collections requiring exact color matching.",
-      items: [
-        "Repeat Pattern Printing",
-        "Placement Prints",
-        "Brand Collection Batching",
-        "Custom Color Matching",
-        "Bespoke Artwork Prints",
-        "Prototype Print Runs",
-      ],
-      highlights: "100% Pantone Color Precision & Fine Line Detail",
-    },
-  ];
-
-  const currentCategory = categories.find((c) => c.id === activeTab) || categories[0];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setSectionVisible(true);
+      },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="applications" className="py-20 sm:py-28 bg-[#FAF7F2]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16">
-          <div>
-            <p className="text-xs sm:text-sm font-sans tracking-[0.3em] uppercase font-bold text-[#C85A32] mb-3">
+    <section
+      id="applications"
+      ref={sectionRef}
+      className="py-16 sm:py-24 bg-[#F7F4EE] relative overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Header */}
+        <div
+          className="mb-10 sm:mb-12 transition-all duration-700"
+          style={{
+            opacity: sectionVisible ? 1 : 0,
+            transform: sectionVisible ? "translateY(0)" : "translateY(24px)",
+          }}
+        >
+          <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 bg-[#EEE9DF] border border-[#202A3A]/10 rounded-full">
+            <Sparkles className="w-3.5 h-3.5 text-[#C85A32]" />
+            <span className="font-sans text-[10px] tracking-[0.28em] uppercase font-bold text-[#202A3A]">
               WHAT WE CREATE
+            </span>
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#202A3A] font-light leading-snug">
+                PRINTED FOR EVERY{" "}
+                <span className="italic text-[#C85A32] font-normal">EXPRESSION.</span>
+              </h2>
+            </div>
+            <p className="font-sans text-xs sm:text-sm text-[#7A8B7B] max-w-xs font-medium leading-relaxed">
+              Explore our core capabilities across fashion apparel, soft home furnishings, and bespoke designer collections.
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B132B] font-light">
-              PRINTED FOR EVERY <span className="font-normal italic text-[#C85A32]">EXPRESSION.</span>
-            </h2>
           </div>
-          <p className="text-sm text-[#8A7E72] max-w-md mt-4 md:mt-0 font-sans">
-            From intricate ethnic wear to luxury home furnishings and custom designer collections.
-          </p>
         </div>
 
-        {/* Category Navigation Tabs */}
-        <div className="flex flex-wrap gap-2 sm:gap-4 border-b border-[#0B132B]/10 pb-4 mb-10 overflow-x-auto">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={`px-5 py-3 text-xs sm:text-sm uppercase tracking-[0.18em] font-semibold transition-all duration-300 rounded-none whitespace-nowrap ${
-                activeTab === cat.id
-                  ? "bg-[#0B132B] text-white shadow-md"
-                  : "bg-[#F3EDE2] text-[#0B132B]/70 hover:bg-[#C85A32]/10 hover:text-[#0B132B]"
-              }`}
-            >
-              {cat.name}
-            </button>
-          ))}
-        </div>
+        {/* ── Expanding Accordion Showcase Container ── */}
+        <div
+          className="flex flex-col md:flex-row gap-4 h-auto md:h-[490px] w-full transition-all duration-700"
+          style={{
+            opacity: sectionVisible ? 1 : 0,
+            transform: sectionVisible ? "translateY(0)" : "translateY(32px)",
+            transitionDelay: "150ms",
+          }}
+        >
+          {categories.map((c, idx) => {
+            const isActive = active === idx;
 
-        {/* Selected Category Showcase Card */}
-        <div className="bg-[#F3EDE2] border border-[#0B132B]/10 p-6 sm:p-10 lg:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-7 space-y-6">
-              <div>
-                <span className="text-xs font-sans tracking-[0.25em] uppercase text-[#C85A32] font-bold">
-                  {currentCategory.tagline}
-                </span>
-                <h3 className="font-serif text-3xl sm:text-4xl font-semibold text-[#0B132B] mt-1">
-                  {currentCategory.name}
-                </h3>
-              </div>
+            return (
+              <div
+                key={c.id}
+                onMouseEnter={() => setActive(idx)}
+                onClick={() => setActive(idx)}
+                className={`
+                  relative overflow-hidden cursor-pointer
+                  transition-all duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)]
+                  border rounded-2xl
+                  ${
+                    isActive
+                      ? "md:flex-[3.8] bg-[#151D2A] text-[#F7F4EE] border-[#D4AF37]/35 shadow-[0_25px_70px_-15px_rgba(21,29,42,0.4)]"
+                      : "md:flex-1 bg-[#EEE9DF] text-[#202A3A] border-[#202A3A]/8 hover:bg-[#FAF8F3] hover:border-[#C85A32]/25"
+                  }
+                  p-6 sm:p-8 lg:p-9 flex flex-col justify-between min-h-[160px] md:min-h-0
+                `}
+              >
+                {/* Gold/Terracotta Luxury Gradient Top Hairline Accent */}
+                {isActive && (
+                  <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#C85A32] via-[#D4AF37] to-transparent animate-fadeIn z-20" />
+                )}
 
-              <p className="font-sans text-base text-[#0B132B]/80 leading-relaxed">
-                {currentCategory.description}
-              </p>
+                {/* Artisanal Layered Background for Active Open Card */}
+                {isActive && (
+                  <>
+                    {/* Subtle Silk Fabric Weave Background Texture */}
+                    <div
+                      className="absolute inset-0 z-0 bg-cover bg-center opacity-12 pointer-events-none transition-opacity duration-1000"
+                      style={{ backgroundImage: "url('/images/hero-img.png')" }}
+                    />
+                    {/* Multi-Tone Warm Amber & Terracotta Radial Spotlight */}
+                    <div
+                      className="absolute inset-0 z-0 pointer-events-none transition-all duration-1000"
+                      style={{
+                        background:
+                          "radial-gradient(ellipse at 85% 15%, rgba(200,90,50,0.24) 0%, rgba(212,175,55,0.14) 40%, rgba(21,29,42,0.95) 80%)",
+                      }}
+                    />
+                    {/* Subtle Inner Gold Edge Lighting */}
+                    <div className="absolute inset-0 z-0 pointer-events-none rounded-2xl border border-inset border-[#D4AF37]/10" />
+                  </>
+                )}
 
-              <div className="pt-2">
-                <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#0B132B] mb-4">
-                  Key Applications & Products:
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {currentCategory.items.map((item) => (
-                    <div key={item} className="flex items-center space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#C85A32]" />
-                      <span className="text-sm font-sans text-[#0B132B] font-medium">
-                        {item}
-                      </span>
+                {/* Top Header: Number & Category Badge */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <span
+                    className={`font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight transition-colors duration-500 ${
+                      isActive ? "text-[#D4AF37]" : "text-[#202A3A]/30"
+                    }`}
+                  >
+                    {c.num}
+                  </span>
+
+                  <span
+                    className={`text-[9px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full transition-all duration-500 ${
+                      isActive
+                        ? "bg-[#C85A32] text-[#F7F4EE] shadow-sm border border-[#D4AF37]/30"
+                        : "bg-[#202A3A]/5 text-[#7A8B7B]"
+                    }`}
+                  >
+                    {c.id}
+                  </span>
+                </div>
+
+                {/* Collapsed Card Vertical Title (Desktop Only) */}
+                {!isActive && (
+                  <div className="hidden md:flex flex-1 items-center justify-center my-4">
+                    <span className="font-serif text-xl lg:text-2xl text-[#202A3A]/70 font-light tracking-wider uppercase whitespace-nowrap -rotate-90">
+                      {c.name}
+                    </span>
+                  </div>
+                )}
+
+                {/* Active Card Open Content */}
+                <div className={`relative z-10 my-4 md:my-0 ${!isActive ? "md:hidden" : ""}`}>
+                  <span
+                    className={`block font-sans text-[10px] uppercase tracking-[0.28em] font-bold mb-1.5 transition-colors duration-500 ${
+                      isActive ? "text-[#D4AF37]" : "text-[#7A8B7B]"
+                    }`}
+                  >
+                    {c.tagline}
+                  </span>
+
+                  <h3
+                    className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-light leading-snug transition-colors duration-500 ${
+                      isActive ? "text-[#F7F4EE]" : "text-[#202A3A]"
+                    }`}
+                  >
+                    {c.name}
+                  </h3>
+
+                  {/* Open State Rich Details */}
+                  {isActive && (
+                    <div className="mt-5 animate-fadeIn">
+                      <p className="font-sans text-xs sm:text-sm text-[#FAF8F3]/85 leading-relaxed max-w-lg mb-5 font-normal">
+                        {c.description}
+                      </p>
+
+                      {/* Glassmorphic Item Chips */}
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {c.items.map((item) => (
+                          <span
+                            key={item}
+                            className="bg-[#FAF8F3]/10 border border-[#D4AF37]/25 text-[#FAF8F3] px-3.5 py-1.5 rounded-lg font-sans text-xs font-semibold backdrop-blur-md shadow-sm transition-transform hover:scale-105"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Tech Spec Tag Line */}
+                      <div className="flex items-center gap-2 font-sans text-[11px] text-[#FAF8F3]/70 tracking-wide font-semibold border-t border-[#FAF8F3]/12 pt-3">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shadow-[0_0_8px_#D4AF37]" />
+                        <span className="text-[#D4AF37] font-bold">TECH:</span>
+                        <span>{c.tech}</span>
+                      </div>
                     </div>
-                  ))}
+                  )}
                 </div>
-              </div>
 
-              <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#0B132B]/10 gap-4">
-                <div className="text-xs text-[#8A7E72] font-sans">
-                  <strong className="text-[#0B132B]">Tech Standard:</strong> {currentCategory.highlights}
-                </div>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-bold text-[#C85A32] hover:text-[#0B132B] transition-colors"
-                >
-                  <span>Request Product Samples</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                {/* Bottom Spacer */}
+                <div className="relative z-10 pt-2" />
               </div>
-            </div>
-
-            {/* Visual Callout Box */}
-            <div className="lg:col-span-5 bg-[#0B132B] text-white p-8 sm:p-10 flex flex-col justify-between min-h-[300px] border-l-4 border-[#C85A32]">
-              <div className="space-y-4">
-                <span className="text-[10px] tracking-[0.3em] uppercase text-[#D4AF37] font-bold">
-                  B2B CAPABILITY
-                </span>
-                <h4 className="font-serif text-2xl font-light leading-snug">
-                  "Engineered to maintain original artwork fidelity across short & volume runs."
-                </h4>
-              </div>
-
-              <div className="pt-8 border-t border-white/10 flex items-center justify-between text-xs font-sans text-white/70">
-                <span>Natural & Synthetic Fabrics</span>
-                <span className="text-[#D4AF37] font-semibold">100% Quality Checked</span>
-              </div>
-            </div>
-
-          </div>
+            );
+          })}
         </div>
 
       </div>

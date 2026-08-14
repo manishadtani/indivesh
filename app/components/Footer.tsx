@@ -8,19 +8,19 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#070C1B] text-[#FAF7F2] pt-16 pb-12 border-t border-[#D4AF37]/20">
+    <footer className="bg-[#151D2A] text-[#F7F4EE] pt-16 pb-12 border-t border-[#D4AF37]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#FAF8F3]/10">
           
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-4">
-            <span className="font-serif text-3xl tracking-[0.25em] font-semibold text-white block">
+            <span className="font-serif text-3xl tracking-[0.25em] font-semibold text-[#F7F4EE] block">
               INDIVESH
             </span>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#C85A32] font-bold">
+            <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#C85A32] font-bold">
               ARTISTRY IN TEXTILE PRINTING & DESIGN
             </p>
-            <p className="font-sans text-sm text-white/70 leading-relaxed max-w-sm">
+            <p className="font-sans text-sm text-[#FAF8F3]/70 leading-relaxed max-w-sm font-normal">
               Where every fabric becomes a canvas. Custom textile design and high-precision print house serving fashion, home, and lifestyle applications.
             </p>
           </div>
@@ -30,7 +30,7 @@ export default function Footer() {
             <h4 className="text-xs font-sans uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
               Navigation
             </h4>
-            <ul className="space-y-2 text-xs font-sans text-white/70">
+            <ul className="space-y-2 text-xs font-sans text-[#FAF8F3]/70 font-medium">
               <li>
                 <a href="#hero" className="hover:text-[#C85A32] transition-colors">
                   Home
@@ -69,7 +69,7 @@ export default function Footer() {
             <h4 className="text-xs font-sans uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
               Core Offerings
             </h4>
-            <ul className="space-y-2 text-xs font-sans text-white/70">
+            <ul className="space-y-2 text-xs font-sans text-[#FAF8F3]/70 font-medium">
               <li>Fashion Apparel (Sarees, Dupattas, Kurtis, Suits)</li>
               <li>Home Furnishings (Bedsheets, Curtains, Cushions)</li>
               <li>Lifestyle Accessories (Totes, Scarves, Stoles)</li>
@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 font-sans gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FAF8F3]/50 font-sans gap-4">
           <p>© {new Date().getFullYear()} INDIVESH. All Rights Reserved. Artisanal Textile House.</p>
           
           <div className="flex items-center space-x-6">
@@ -88,10 +88,10 @@ export default function Footer() {
             <span>Terms of Service</span>
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center space-x-1 text-[#D4AF37] hover:text-white transition-colors"
+              className="inline-flex items-center space-x-1 text-[#D4AF37] hover:text-[#F7F4EE] transition-colors"
             >
               <span>Back to top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
+              <ArrowUp className="w-3.5 h-3.5 text-[#D4AF37]" />
             </button>
           </div>
         </div>

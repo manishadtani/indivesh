@@ -65,7 +65,7 @@ export default function OurWorkGallery() {
   ];
 
   return (
-    <section id="work" className="py-20 sm:py-28 bg-[#F3EDE2] border-t border-[#0B132B]/10">
+    <section id="work" className="py-20 sm:py-28 bg-[#EEE9DF] border-t border-[#202A3A]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -73,11 +73,11 @@ export default function OurWorkGallery() {
           <p className="text-xs sm:text-sm font-sans tracking-[0.3em] uppercase font-bold text-[#C85A32] mb-3">
             PORTFOLIO & GALLERY
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B132B] font-light">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#202A3A] font-light">
             PRINTS THAT <span className="font-normal italic text-[#C85A32]">SPEAK FOR THEMSELVES.</span>
           </h2>
           <div className="w-16 h-[2px] bg-[#C85A32] mx-auto my-5" />
-          <p className="text-sm sm:text-base text-[#8A7E72] font-sans">
+          <p className="text-sm sm:text-base text-[#7A8B7B] font-sans font-medium">
             Explore our crafted textile collection across ethnic sarees, contemporary fashion apparel, and luxury home furnishings.
           </p>
         </div>
@@ -88,9 +88,9 @@ export default function OurWorkGallery() {
             <div
               key={item.id}
               onClick={() => setSelectedImage(item)}
-              className="group relative bg-[#FAF7F2] border border-[#0B132B]/10 cursor-pointer overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
+              className="group relative bg-[#FAF8F3] border border-[#202A3A]/10 cursor-pointer overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#EFEADF]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F7F4EE]">
                 <Image
                   src={item.src}
                   alt={item.title}
@@ -100,16 +100,16 @@ export default function OurWorkGallery() {
                 />
 
                 {/* Dark Overlay on Hover */}
-                <div className="absolute inset-0 bg-[#0B132B]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6 text-center">
+                <div className="absolute inset-0 bg-[#202A3A]/65 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6 text-center">
                   <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 space-y-2">
-                    <span className="inline-flex items-center space-x-1.5 bg-[#C85A32] text-white px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-semibold">
+                    <span className="inline-flex items-center space-x-1.5 bg-[#C85A32] text-[#F7F4EE] px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-bold">
                       <Eye className="w-3.5 h-3.5" />
                       <span>Inspect Print</span>
                     </span>
-                    <h3 className="font-serif text-xl font-semibold text-white">
+                    <h3 className="font-serif text-xl font-semibold text-[#F7F4EE]">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-white/80 font-sans">
+                    <p className="text-xs text-[#FAF8F3]/80 font-sans">
                       {item.fabric}
                     </p>
                   </div>
@@ -117,16 +117,16 @@ export default function OurWorkGallery() {
               </div>
 
               {/* Bottom Card Info */}
-              <div className="p-5 flex items-center justify-between bg-white border-t border-[#0B132B]/5">
+              <div className="p-5 flex items-center justify-between bg-[#FAF8F3] border-t border-[#202A3A]/5">
                 <div>
                   <span className="text-[10px] font-sans tracking-[0.2em] uppercase font-bold text-[#C85A32]">
                     {item.category}
                   </span>
-                  <h4 className="font-serif text-lg font-semibold text-[#0B132B]">
+                  <h4 className="font-serif text-lg font-semibold text-[#202A3A]">
                     {item.title}
                   </h4>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#FAF7F2] group-hover:bg-[#C85A32] text-[#0B132B] group-hover:text-white flex items-center justify-center transition-colors duration-300">
+                <div className="w-8 h-8 rounded-full bg-[#F7F4EE] group-hover:bg-[#C85A32] text-[#202A3A] group-hover:text-[#F7F4EE] flex items-center justify-center transition-colors duration-300">
                   <ZoomIn className="w-4 h-4" />
                 </div>
               </div>
@@ -137,23 +137,23 @@ export default function OurWorkGallery() {
         {/* Fullscreen Lightbox Modal */}
         {selectedImage && (
           <div
-            className="fixed inset-0 z-50 bg-[#070C1B]/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            className="fixed inset-0 z-50 bg-[#151D2A]/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
             onClick={() => setSelectedImage(null)}
           >
             <div
-              className="relative max-w-4xl w-full bg-[#FAF7F2] border border-[#C85A32]/40 shadow-2xl overflow-hidden"
+              className="relative max-w-4xl w-full bg-[#FAF8F3] border border-[#C85A32]/40 shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-[#0B132B]/10 bg-[#FAF7F2]">
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-[#202A3A]/10 bg-[#FAF8F3]">
                 <div className="flex items-center space-x-2">
                   <Sparkles className="w-4 h-4 text-[#C85A32]" />
-                  <span className="text-xs uppercase tracking-[0.25em] font-bold text-[#0B132B]">
+                  <span className="text-xs uppercase tracking-[0.25em] font-bold text-[#202A3A]">
                     {selectedImage.category}
                   </span>
                 </div>
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="p-2 text-[#0B132B] hover:text-[#C85A32] transition-colors"
+                  className="p-2 text-[#202A3A] hover:text-[#C85A32] transition-colors"
                   aria-label="Close modal"
                 >
                   <X className="w-6 h-6" />
@@ -161,7 +161,7 @@ export default function OurWorkGallery() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
-                <div className="md:col-span-8 bg-black relative aspect-[4/3] sm:aspect-auto">
+                <div className="md:col-span-8 bg-[#202A3A] relative aspect-[4/3] sm:aspect-auto">
                   <Image
                     src={selectedImage.src}
                     alt={selectedImage.title}
@@ -170,27 +170,27 @@ export default function OurWorkGallery() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="md:col-span-4 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-[#F3EDE2]">
+                <div className="md:col-span-4 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-[#EEE9DF]">
                   <div>
-                    <h3 className="font-serif text-2xl font-semibold text-[#0B132B] mb-2">
+                    <h3 className="font-serif text-2xl font-semibold text-[#202A3A] mb-2">
                       {selectedImage.title}
                     </h3>
                     <p className="text-xs font-sans uppercase tracking-widest text-[#C85A32] font-bold mb-4">
                       Fabric: {selectedImage.fabric}
                     </p>
-                    <p className="text-sm font-sans text-[#0B132B]/80 leading-relaxed">
+                    <p className="text-sm font-sans text-[#202A3A]/80 leading-relaxed font-normal">
                       {selectedImage.details}
                     </p>
                   </div>
 
-                  <div className="space-y-3 border-t border-[#0B132B]/10 pt-4">
-                    <p className="text-[11px] uppercase tracking-wider text-[#8A7E72]">
+                  <div className="space-y-3 border-t border-[#202A3A]/10 pt-4">
+                    <p className="text-[11px] uppercase tracking-wider text-[#7A8B7B] font-semibold">
                       Need a similar print developed for your brand?
                     </p>
                     <a
                       href="#contact"
                       onClick={() => setSelectedImage(null)}
-                      className="w-full inline-flex items-center justify-center bg-[#0B132B] hover:bg-[#C85A32] text-white py-3 text-xs uppercase tracking-[0.2em] font-semibold transition-colors"
+                      className="w-full inline-flex items-center justify-center bg-[#202A3A] hover:bg-[#C85A32] text-[#F7F4EE] py-3 text-xs uppercase tracking-[0.2em] font-bold transition-colors"
                     >
                       Enquire For Custom Print
                     </a>

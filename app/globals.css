@@ -2,28 +2,33 @@
 
 @layer base {
   :root {
-    --background: #FAF7F2;
-    --foreground: #1D1C1B;
+    --background: #F7F4EE;
+    --foreground: #202A3A;
     --font-cormorant: 'Cormorant Garamond', Georgia, serif;
-    --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-manrope: 'Manrope', system-ui, -apple-system, sans-serif;
   }
 }
 
 @theme {
-  --color-ivory: #FAF7F2;
-  --color-ivory-light: #FDFBF7;
-  --color-beige-subtle: #F3EDE2;
-  --color-navy-deep: #0B132B;
-  --color-navy-dark: #070C1B;
+  /* 70% Base / Background */
+  --color-base: #F7F4EE;
+  
+  /* 15% Secondary Backgrounds & Panels */
+  --color-[#FAF8F3]: #FAF8F3;
+  --color-sand: #EEE9DF;
+  
+  /* 10% Dark Accents & Contrast */
+  --color-dark: #202A3A;
+  --color-navy-deep: #202A3A;
+  --color-navy-dark: #151D2A;
+  
+  /* 5% Accent Colors */
   --color-terracotta: #C85A32;
-  --color-terracotta-soft: #E07A5F;
-  --color-taupe: #8A7E72;
-  --color-charcoal: #1D1C1B;
+  --color-sage: #7A8B7B;
   --color-gold-accent: #D4AF37;
-  --color-gold-muted: #C5A059;
 
   --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
-  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-manrope), 'Manrope', system-ui, -apple-system, sans-serif;
 }
 
 /* Custom Luxury Typography Utilities */
@@ -32,7 +37,7 @@
 }
 
 .font-sans {
-  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-manrope), 'Manrope', system-ui, -apple-system, sans-serif;
 }
 
 /* Keyframes & Animations */
@@ -126,6 +131,21 @@
 
 .animate-float {
   animation: floatSlow 5s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .animate-pulse-glow {
