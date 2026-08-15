@@ -147,16 +147,16 @@ export default function Hero() {
       {/* STICKY PINNED HERO VIEWPORT */}
       <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-[#F7F4EE]">
         
-        {/* ANIMATED FABRIC EMERGENCE BACKGROUND LAYER — Only after title fades */}
+        {/* ANIMATED FABRIC EMERGENCE BACKGROUND LAYER (Desktop Zoom Reveal / Mobile Direct Static Image) */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('${isMobile ? "/images/hero-img-phone.webp" : "/images/hero-imgg.webp"}')`,
-            transform: `scale(${transformStyle.scale}) translateZ(0)`,
-            opacity: showFabric ? transformStyle.opacity : 0,
+            transform: isMobile ? "none" : `scale(${transformStyle.scale}) translateZ(0)`,
+            opacity: isMobile ? 1 : (showFabric ? transformStyle.opacity : 0),
             transformOrigin: "center center",
-            willChange: "transform, opacity",
-            transition: "opacity 1s ease-out",
+            willChange: isMobile ? "auto" : "transform, opacity",
+            transition: isMobile ? "none" : "opacity 1s ease-out",
           }}
         />
 
