@@ -9,11 +9,28 @@ export default function Hero() {
   const [phase, setPhase] = useState<"title" | "fadeOut" | "reveal" | "ready">("title");
   const [hasScrolled, setHasScrolled] = useState(false);
   const hasCompletedRef = useRef(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [transformStyle, setTransformStyle] = useState({
-    scale: 0.58,
+    scale: 1.0,
     opacity: 0,
   });
   const rafRef = useRef<number | null>(null);
+
+  // Detect Mobile Screen Size
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (mobile) {
+        setTransformStyle({ scale: 1.0, opacity: 1.0 });
+      } else if (!hasCompletedRef.current) {
+        setTransformStyle({ scale: 0.58, opacity: 0.12 });
+      }
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Cinematic Intro Sequence
   useEffect(() => {
@@ -56,11 +73,12 @@ export default function Hero() {
     };
   }, []);
 
-  // Scroll Tracking for Pinned Zoom Animation
+  // Scroll Tracking for Pinned Zoom Animation (Desktop Only)
   useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    const startScale = isMobile ? 0.64 : 0.58;
-    const startOpacity = isMobile ? 0.16 : 0.12;
+    if (isMobile) return;
+
+    const startScale = 0.58;
+    const startOpacity = 0.12;
 
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -109,14 +127,11 @@ export default function Hero() {
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
     };
-  }, []);
+  }, [isMobile]);
 
   // Fabric image should only be visible after title disappears
   const showFabric = phase === "reveal" || phase === "ready";
@@ -125,7 +140,9 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative w-full h-[180vh] sm:h-[220vh] bg-[#F7F4EE]"
+      className={`relative w-full bg-[#F7F4EE] ${
+        isMobile ? "h-screen" : "h-[220vh]"
+      }`}
     >
       {/* STICKY PINNED HERO VIEWPORT */}
       <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-[#F7F4EE]">
@@ -134,7 +151,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/hero-img.webp')",
+            backgroundImage: `url('${isMobile ? "/images/hero-img-phone.webp" : "/images/hero-imgg.webp"}')`,
             transform: `scale(${transformStyle.scale}) translateZ(0)`,
             opacity: showFabric ? transformStyle.opacity : 0,
             transformOrigin: "center center",
