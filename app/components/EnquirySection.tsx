@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Phone, Mail, MessageCircle, CheckCircle2, MapPin } from "lucide-react";
+import { Send, Phone, Mail, MessageCircle, CheckCircle2, MapPin, Loader2 } from "lucide-react";
 
 export default function EnquirySection() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,16 +14,49 @@ export default function EnquirySection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMsg("");
+
+    try {
+      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service_id: "service_5s6un2o",
+          template_id: "template_3exbi3l",
+          user_id: "cY4HZh98ahsbuIcn1",
+          template_params: {
+            form_type: "Website B2B Project Enquiry",
+            from_name: formData.name,
+            from_email: formData.email,
+            from_phone: formData.phone,
+            message: formData.message || "No additional project notes provided.",
+          },
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setErrorMsg("Failed to send message. Please try again or WhatsApp us directly.");
+      }
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      setErrorMsg("Network error. Please try again or reach us via WhatsApp.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section id="contact" className="py-16 sm:py-24 bg-[#F7F4EE] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Concise Section Header (No Heavy Dark Banner) */}
+        {/* Concise Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 bg-[#EEE9DF] border border-[#202A3A]/10 rounded-full">
             <span className="font-sans text-[10px] tracking-[0.28em] uppercase font-bold text-[#202A3A]">
@@ -37,7 +72,7 @@ export default function EnquirySection() {
         {/* Contact Form & Info Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
-          {/* Left Sleek Contact Links (No Heavy Boxes) */}
+          {/* Left Sleek Contact Links */}
           <div className="lg:col-span-5 space-y-6 pt-1">
             <div>
               <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#202A3A] mb-2">
@@ -113,10 +148,13 @@ export default function EnquirySection() {
                   Enquiry Received
                 </h3>
                 <p className="text-xs font-sans text-[#7A8B7B] max-w-sm mx-auto font-medium">
-                  Thank you for reaching out. Our textile team will get back to you shortly.
+                  Thank you for reaching out to Indivesh. Our senior textile designer will review your requirement and connect with you shortly.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({ name: "", email: "", phone: "", message: "" });
+                  }}
                   className="mt-2 bg-[#202A3A] text-[#F7F4EE] px-5 py-2 text-xs uppercase tracking-[0.2em] font-bold hover:bg-[#C85A32] transition-colors rounded-lg"
                 >
                   Submit Another Enquiry
@@ -124,6 +162,12 @@ export default function EnquirySection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+
+                {errorMsg && (
+                  <div className="p-3 bg-[#C85A32]/10 border border-[#C85A32]/30 rounded-xl text-xs text-[#C85A32] font-semibold text-center">
+                    {errorMsg}
+                  </div>
+                )}
 
                 {/* 1. Full Name */}
                 <div>
@@ -188,10 +232,20 @@ export default function EnquirySection() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-[#202A3A] hover:bg-[#C85A32] text-[#F7F4EE] py-3.5 text-xs uppercase tracking-[0.25em] font-bold rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 mt-2 group"
+                  disabled={loading}
+                  className="w-full bg-[#202A3A] hover:bg-[#C85A32] text-[#F7F4EE] py-3.5 text-xs uppercase tracking-[0.25em] font-bold rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 mt-2 group disabled:opacity-60"
                 >
-                  <span>Send Enquiry To Indivesh</span>
-                  <Send className="w-3.5 h-3.5 text-[#F7F4EE] transition-transform group-hover:translate-x-1" />
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 text-[#F7F4EE] animate-spin" />
+                      <span>Sending Enquiry...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Enquiry To Indivesh</span>
+                      <Send className="w-3.5 h-3.5 text-[#F7F4EE] transition-transform group-hover:translate-x-1" />
+                    </>
+                  )}
                 </button>
               </form>
             )}

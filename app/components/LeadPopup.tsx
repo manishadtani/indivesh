@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, ArrowRight, CheckCircle2 } from "lucide-react";
+import { X, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 
 export default function LeadPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "" });
 
   useEffect(() => {
@@ -22,12 +23,38 @@ export default function LeadPopup() {
     setIsOpen(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      handleClose();
-    }, 1800);
+    setLoading(true);
+
+    try {
+      await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service_id: "service_5s6un2o",
+          template_id: "template_3exbi3l",
+          user_id: "cY4HZh98ahsbuIcn1",
+          template_params: {
+            form_type: "Catalogue Lead Request (First-Time Visitor)",
+            from_name: formData.name,
+            from_email: formData.email,
+            from_phone: "Not provided (Lead Popup)",
+            message: "Requested access to Indivesh Studio Catalogue via initial load popup modal.",
+          },
+        }),
+      });
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+      setTimeout(() => {
+        handleClose();
+      }, 1800);
+    }
   };
 
   if (!isOpen) return null;
@@ -120,10 +147,20 @@ export default function LeadPopup() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#C85A32] hover:bg-[#D4AF37] text-[#F7F4EE] hover:text-[#202A3A] py-3.5 text-xs uppercase tracking-[0.22em] font-bold rounded-xl transition-all duration-300 shadow-lg flex items-center justify-center gap-2 mt-3 group"
+                disabled={loading}
+                className="w-full bg-[#C85A32] hover:bg-[#D4AF37] text-[#F7F4EE] hover:text-[#202A3A] py-3.5 text-xs uppercase tracking-[0.22em] font-bold rounded-xl transition-all duration-300 shadow-lg flex items-center justify-center gap-2 mt-3 group disabled:opacity-60"
               >
-                <span>Access Studio Catalogue</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                {loading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 text-[#F7F4EE] animate-spin" />
+                    <span>Connecting...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Access Studio Catalogue</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  </>
+                )}
               </button>
 
               {/* Skip Option Below Button */}

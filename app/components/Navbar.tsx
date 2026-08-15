@@ -94,7 +94,7 @@ export default function Navbar() {
                 : "opacity-0 -translate-y-3 pointer-events-none"
             }`}
           >
-            <GoogleTranslate />
+            <GoogleTranslate id="google_translate_element_desktop" />
             <a
               href="#contact"
               className="group inline-flex items-center space-x-2 bg-[#202A3A] hover:bg-[#C85A32] text-[#F7F4EE] px-5 py-2.5 rounded-lg text-xs uppercase tracking-[0.2em] font-bold border border-[#D4AF37]/30 transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
@@ -170,7 +170,7 @@ export default function Navbar() {
                 Artistry In Textile
               </span>
             </div>
-            <GoogleTranslate />
+            <GoogleTranslate id="google_translate_element_mobile" />
           </div>
 
           <nav className="flex flex-col space-y-5">
