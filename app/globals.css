@@ -279,3 +279,49 @@ body {
 .goog-te-gadget span {
   display: none !important;
 }
+
+/* ─── CINEMATIC HERO INTRO KEYFRAMES ─── */
+@keyframes cinematicReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+    letter-spacing: 0.08em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: inherit;
+  }
+}
+
+@keyframes expandLine {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes letterFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
