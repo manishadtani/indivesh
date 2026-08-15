@@ -153,10 +153,10 @@ export default function Hero() {
           style={{
             backgroundImage: `url('${isMobile ? "/images/hero-img-phone.webp" : "/images/hero-imgg.webp"}')`,
             transform: isMobile ? "none" : `scale(${transformStyle.scale}) translateZ(0)`,
-            opacity: isMobile ? 1 : (showFabric ? transformStyle.opacity : 0),
+            opacity: showFabric ? (isMobile ? 1 : transformStyle.opacity) : 0,
             transformOrigin: "center center",
             willChange: isMobile ? "auto" : "transform, opacity",
-            transition: isMobile ? "none" : "opacity 1s ease-out",
+            transition: "opacity 0.6s ease-out",
           }}
         />
 
