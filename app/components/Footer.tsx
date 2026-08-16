@@ -23,6 +23,29 @@ export default function Footer() {
             <p className="font-sans text-sm text-[#FAF8F3]/70 leading-relaxed max-w-sm font-normal">
               Where every fabric becomes a canvas. Custom textile design and high-precision print house serving fashion, home, and lifestyle applications.
             </p>
+            {/* Social Media Link */}
+            <div className="pt-2">
+              <a
+                href="https://www.instagram.com/indiveshofficial?igsh=MWsxZm8xaDQ3cmpvag==&igsi=MWsxZm8xaDQ3cmpvag=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Indivesh on Instagram"
+                className="inline-flex items-center space-x-2.5 text-[#F7F4EE] hover:text-[#C85A32] bg-[#202A3A] hover:bg-[#FAF8F3]/10 border border-[#D4AF37]/30 px-3.5 py-2 rounded-full text-xs font-semibold transition-all duration-300 shadow-sm"
+              >
+                <svg
+                  className="w-4 h-4 text-[#C85A32] fill-none stroke-current"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+                <span>@indiveshofficial</span>
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -93,6 +116,28 @@ export default function Footer() {
               <li>
                 <span className="text-[#C85A32] font-bold block text-[10px] uppercase">Studio Location:</span>
                 <span>Jaipur, Rajasthan, India</span>
+              </li>
+              <li>
+                <span className="text-[#C85A32] font-bold block text-[10px] uppercase">Instagram Atelier:</span>
+                <a
+                  href="https://www.instagram.com/indiveshofficial?igsh=MWsxZm8xaDQ3cmpvag==&igsi=MWsxZm8xaDQ3cmpvag=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D4AF37] transition-colors text-sm font-semibold inline-flex items-center space-x-1.5"
+                >
+                  <svg
+                    className="w-3.5 h-3.5 text-[#C85A32] fill-none stroke-current"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                  <span>@indiveshofficial</span>
+                </a>
               </li>
             </ul>
           </div>

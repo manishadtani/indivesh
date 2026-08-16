@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 declare global {
   interface Window {
@@ -9,47 +9,33 @@ declare global {
   }
 }
 
-interface GoogleTranslateProps {
-  id?: string;
-}
+const languages = [
+  { code: "en", label: "English" },
+  { code: "hi", label: "Hindi (हिंदी)" },
+  { code: "fr", label: "French (Français)" },
+  { code: "es", label: "Spanish (Español)" },
+  { code: "de", label: "German (Deutsch)" },
+  { code: "it", label: "Italian (Italiano)" },
+  { code: "ja", label: "Japanese (日本語)" },
+  { code: "ar", label: "Arabic (العربية)" },
+  { code: "zh-CN", label: "Chinese (中文)" },
+];
 
-export default function GoogleTranslate({ id = "google_translate_element" }: GoogleTranslateProps) {
+export default function GoogleTranslate() {
+  const [selectedLang, setSelectedLang] = useState("en");
+
   useEffect(() => {
     window.googleTranslateElementInit = () => {
       if (window.google && window.google.translate) {
-        if (document.getElementById("google_translate_element_desktop")) {
-          new window.google.translate.TranslateElement(
-            {
-              pageLanguage: "en",
-              includedLanguages: "en,hi,fr,es,de,it,ja,ar,zh-CN",
-              layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-              autoDisplay: false,
-            },
-            "google_translate_element_desktop"
-          );
-        }
-        if (document.getElementById("google_translate_element_mobile")) {
-          new window.google.translate.TranslateElement(
-            {
-              pageLanguage: "en",
-              includedLanguages: "en,hi,fr,es,de,it,ja,ar,zh-CN",
-              layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-              autoDisplay: false,
-            },
-            "google_translate_element_mobile"
-          );
-        }
-        if (document.getElementById("google_translate_element")) {
-          new window.google.translate.TranslateElement(
-            {
-              pageLanguage: "en",
-              includedLanguages: "en,hi,fr,es,de,it,ja,ar,zh-CN",
-              layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-              autoDisplay: false,
-            },
-            "google_translate_element"
-          );
-        }
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,fr,es,de,it,ja,ar,zh-CN",
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+          },
+          "hidden_google_translate_element"
+        );
       }
     };
 
@@ -59,17 +45,30 @@ export default function GoogleTranslate({ id = "google_translate_element" }: Goo
       script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
       script.async = true;
       document.body.appendChild(script);
-    } else if (window.googleTranslateElementInit) {
-      window.googleTranslateElementInit();
     }
   }, []);
 
+  const handleLanguageChange = (langCode: string) => {
+    setSelectedLang(langCode);
+
+    // Trigger Google Translate engine
+    const googleSelect = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+    if (googleSelect) {
+      googleSelect.value = langCode;
+      googleSelect.dispatchEvent(new Event("change"));
+    }
+  };
+
   return (
-    <div className="group relative flex items-center gap-2 bg-[#EEE9DF] hover:bg-[#FAF8F3] border border-[#202A3A]/10 hover:border-[#D4AF37]/60 px-3 py-1.5 rounded-full transition-all duration-300 shadow-sm hover:shadow cursor-pointer pointer-events-auto">
-      {/* Sleek Terracotta Icon Ring Badge */}
-      <div className="w-6 h-6 rounded-full bg-[#C85A32] text-[#F7F4EE] flex items-center justify-center flex-shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105">
+    <div className="relative inline-flex items-center gap-2 bg-[#EEE9DF] hover:bg-[#FAF8F3] border border-[#202A3A]/15 hover:border-[#D4AF37]/60 px-3 py-1.5 rounded-full transition-all duration-300 shadow-sm">
+      
+      {/* Hidden Native Google Translate Container */}
+      <div id="hidden_google_translate_element" className="hidden absolute opacity-0 pointer-events-none" />
+
+      {/* Terracotta Icon Ring Badge */}
+      <div className="w-5 h-5 rounded-full bg-[#C85A32] text-[#F7F4EE] flex items-center justify-center flex-shrink-0 shadow-sm">
         <svg
-          className="w-3.5 h-3.5 fill-none stroke-current"
+          className="w-3 h-3 fill-none stroke-current"
           viewBox="0 0 24 24"
           strokeWidth="2.2"
           strokeLinecap="round"
@@ -81,7 +80,19 @@ export default function GoogleTranslate({ id = "google_translate_element" }: Goo
         </svg>
       </div>
 
-      <div id={id} className="translate-wrapper font-sans text-xs font-semibold text-[#202A3A] pointer-events-auto" />
+      {/* Custom Touch-Optimized Luxury Dropdown */}
+      <select
+        value={selectedLang}
+        onChange={(e) => handleLanguageChange(e.target.value)}
+        className="bg-transparent text-xs font-sans font-bold text-[#202A3A] outline-none cursor-pointer pr-1 py-0.5 appearance-none focus:outline-none"
+        aria-label="Select Language"
+      >
+        {languages.map((lang) => (
+          <option key={lang.code} value={lang.code} className="bg-[#FAF8F3] text-[#202A3A] font-semibold text-xs">
+            {lang.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
