@@ -22,12 +22,12 @@ const steps = [
   {
     num: "04",
     title: "Precision Print",
-    desc: "High-definition reactive, pigment, or sublimation production.",
+    desc: "High quality screen, hand block, reactive, sublimation, Marble print production",
   },
   {
     num: "05",
     title: "Quality & Dispatch",
-    desc: "100% fabric roll inspection, steam finishing, and delivery.",
+    desc: "100% fabric roll inspection, finishing, packaging and timely domestic and international delivery",
   },
 ];
 

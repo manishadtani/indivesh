@@ -18,73 +18,76 @@ type MediaItem = {
 const mediaItems: MediaItem[] = [
   {
     id: "m1",
-    title: "Direct Reactive High-Speed Printing",
-    category: "video",
-    categoryLabel: "Live Printing Videos",
+    title: "Automatic Screen Printing Machine Production",
+    category: "machinery",
+    categoryLabel: "Machinery & Live Video",
     type: "video",
-    badge: "#FactoryFloor",
+    badge: "#ScreenPrinting",
     src: "/images/t and.webp",
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    videoUrl: "/gallery/screenprintingmachine.mp4",
     aspect: "col-span-1 md:col-span-2 row-span-2",
   },
   {
     id: "m2",
-    title: "Silk Saree Fiber Penetration Detail",
-    category: "craft",
-    categoryLabel: "Craft & Details",
-    type: "photo",
-    badge: "#RealFacility",
-    src: "/images/f sare.webp",
+    title: "Sublimation Thermal Transfer Printing Run",
+    category: "video",
+    categoryLabel: "Live Printing Footage",
+    type: "video",
+    badge: "#SublimationPrint",
+    src: "/images/stoles.webp",
+    videoUrl: "/gallery/sublimationprinting.mp4",
     aspect: "col-span-1 row-span-1",
   },
   {
     id: "m3",
-    title: "High-Caliber Digital Steam Fixation",
-    category: "machinery",
-    categoryLabel: "Machinery & Facility",
-    type: "photo",
-    badge: "#PrecisionMachinery",
-    src: "/images/ksdlksa.webp",
+    title: "Digital Reactive Printing Machine Action",
+    category: "video",
+    categoryLabel: "Live Printing Footage",
+    type: "video",
+    badge: "#ReactivePrinting",
+    src: "/images/f sare.webp",
+    videoUrl: "/gallery/reactiveprintingvideo.mp4",
     aspect: "col-span-1 row-span-1",
   },
   {
     id: "m4",
-    title: "Sublimation Roll Heat Press Run",
-    category: "video",
-    categoryLabel: "Live Printing Videos",
-    type: "video",
-    badge: "#LiveFootage",
-    src: "/images/stoles.webp",
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    title: "Artisan Reactive Printed Fabric Detail",
+    category: "craft",
+    categoryLabel: "Craft & Fabric Art",
+    type: "photo",
+    badge: "#ReactiveArt",
+    src: "/gallery/reactiveprinting.jpeg",
     aspect: "col-span-1 row-span-1",
   },
   {
     id: "m5",
-    title: "Home Textile Repeat Pattern Precision",
-    category: "craft",
-    categoryLabel: "Craft & Details",
-    type: "photo",
-    badge: "#DirectReactive",
-    src: "/images/home.webp",
+    title: "High-Precision Reactive Fabric Printing",
+    category: "video",
+    categoryLabel: "Live Printing Footage",
+    type: "video",
+    badge: "#PrecisionRun",
+    src: "/images/fashionn.webp",
+    videoUrl: "/gallery/reactiveprinting1video.mp4",
     aspect: "col-span-1 md:col-span-2 row-span-1",
   },
   {
     id: "m6",
-    title: "Bespoke Pantone Inkject Nozzle Array",
-    category: "machinery",
-    categoryLabel: "Machinery & Facility",
-    type: "photo",
-    badge: "#FactoryFloor",
-    src: "/images/custom.webp",
+    title: "Fabric Dyeing & Color Fixation Process",
+    category: "video",
+    categoryLabel: "Quality & Details",
+    type: "video",
+    badge: "#ColorFixation",
+    src: "/images/home.webp",
+    videoUrl: "/gallery/reactiveprinting2.mp4",
     aspect: "col-span-1 row-span-1",
   },
 ];
 
 const filterTabs = [
-  { id: "all", label: "All Media" },
-  { id: "machinery", label: "Machinery & Facility" },
-  { id: "video", label: "Live Printing Videos" },
-  { id: "craft", label: "Craft & Details" },
+  { id: "all", label: "All Gallery Media" },
+  { id: "video", label: "Live Printing Footage" },
+  { id: "machinery", label: "Machinery & Equipment" },
+  { id: "craft", label: "Craft & Fabric Art" },
 ];
 
 export default function PrintFloorGallery() {
@@ -111,9 +114,9 @@ export default function PrintFloorGallery() {
 
   return (
     <section
-      id="print-floor"
+      id="work"
       ref={sectionRef}
-      className="py-20 sm:py-28 bg-[#F7F4EE] relative overflow-hidden"
+      className="py-20 sm:py-28 bg-[#F7F4EE] relative overflow-hidden border-t border-[#202A3A]/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -126,17 +129,18 @@ export default function PrintFloorGallery() {
           }}
         >
           <div className="inline-flex items-center gap-2 mb-2.5 px-3.5 py-1 bg-[#EEE9DF] border border-[#202A3A]/10 rounded-full">
+            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span className="font-sans text-[10px] tracking-[0.28em] uppercase font-bold text-[#202A3A]">
-              INSIDE THE FACILITY
+              INSIDE OUR FACILITY
             </span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#202A3A] font-light leading-snug">
-            THE PRINT <span className="italic text-[#C85A32] font-normal">FLOOR.</span>
+            THE PRINT <span className="italic text-[#C85A32] font-normal">FLOOR GALLERY.</span>
           </h2>
           <div className="w-16 h-[2px] bg-[#C85A32] mx-auto my-4" />
           <p className="text-xs sm:text-sm text-[#7A8B7B] font-sans font-medium max-w-xl mx-auto leading-relaxed">
-            Live Factory Footage, Machine Precision & Fabric Artistry
+            Authentic Factory Floor Footage, Machine Precision & Fabric Dyeing Artistry
           </p>
         </div>
 
@@ -191,7 +195,7 @@ export default function PrintFloorGallery() {
                 ${item.aspect}
               `}
             >
-              {/* Background Image Thumbnail */}
+              {/* Background Image Thumbnail (Zero Network Lag) */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
                 style={{ backgroundImage: `url('${item.src}')` }}
@@ -202,7 +206,7 @@ export default function PrintFloorGallery() {
                 className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-85"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(32,42,58,0.92) 0%, rgba(32,42,58,0.3) 50%, rgba(32,42,58,0.1) 100%)",
+                    "linear-gradient(to top, rgba(32,42,58,0.92) 0%, rgba(32,42,58,0.35) 50%, rgba(32,42,58,0.1) 100%)",
                 }}
               />
 
@@ -253,7 +257,7 @@ export default function PrintFloorGallery() {
 
       </div>
 
-      {/* ── Fullscreen Lightbox / Video Modal ── */}
+      {/* ── High-Performance Lightbox / Video Modal (On-Demand Loading) ── */}
       {selectedMedia && (
         <div
           className="fixed inset-0 z-50 bg-[#151D2A]/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
@@ -290,6 +294,8 @@ export default function PrintFloorGallery() {
                   src={selectedMedia.videoUrl}
                   controls
                   autoPlay
+                  preload="metadata"
+                  playsInline
                   className="w-full h-full max-h-[70vh] object-contain"
                 />
               ) : (
@@ -303,7 +309,7 @@ export default function PrintFloorGallery() {
 
             {/* Modal Footer Info */}
             <div className="p-4 sm:p-5 border-t border-[#FAF8F3]/10 bg-[#151D2A]/80 flex items-center justify-between text-xs font-sans text-[#FAF8F3]/80">
-              <span>Indivesh Authentic Facility & Work Production</span>
+              <span>Indivesh Authentic Factory Floor Footage</span>
               <span className="text-[#D4AF37] font-semibold">{selectedMedia.categoryLabel}</span>
             </div>
           </div>

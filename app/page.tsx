@@ -1,7 +1,9 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import BrandPhilosophy from "./components/BrandPhilosophy";
+import ServicesSection from "./components/ServicesSection";
 import WhatWeCreate from "./components/WhatWeCreate";
+import WhoWeServe from "./components/WhoWeServe";
 import OurWorkGallery from "./components/OurWorkGallery";
 import ProcessSection from "./components/ProcessSection";
 import FabricCapabilities from "./components/FabricCapabilities";
@@ -20,7 +22,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <BrandPhilosophy />
+      <ServicesSection />
       <WhatWeCreate />
+      <WhoWeServe />
       <ProcessSection />
       {/* <OurWorkGallery /> */}
       {/* <FabricCapabilities /> */}

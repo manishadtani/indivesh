@@ -35,6 +35,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
     { name: "Applications", href: "#applications" },
     { name: "Process", href: "#process" },
     { name: "Our Work", href: "#work" },
@@ -69,7 +70,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <nav
-            className={`hidden md:flex items-center space-x-7 lg:space-x-9 transition-all duration-500 ease-in-out ${
+            className={`hidden md:flex items-center space-x-6 lg:space-x-8 transition-all duration-500 ease-in-out ${
               showFullNav
                 ? "opacity-100 translate-y-0 pointer-events-auto"
                 : "opacity-0 -translate-y-3 pointer-events-none"
@@ -79,7 +80,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs lg:text-sm font-sans tracking-[0.18em] uppercase text-[#202A3A]/85 hover:text-[#C85A32] font-semibold transition-all duration-200 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-[#C85A32] hover:after:w-full after:transition-all after:duration-300"
+                className="text-[10px] lg:text-[11px] font-sans tracking-[0.25em] uppercase text-[#202A3A]/80 hover:text-[#C85A32] font-bold transition-all duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-gradient-to-r after:from-[#C85A32] after:to-[#D4AF37] hover:after:w-full after:transition-all after:duration-300"
               >
                 {link.name}
               </a>
@@ -173,15 +174,16 @@ export default function Navbar() {
             <GoogleTranslate />
           </div>
 
-          <nav className="flex flex-col space-y-5">
+          <nav className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="font-serif text-2xl tracking-wide text-[#202A3A] hover:text-[#C85A32] transition-colors duration-200 border-b border-[#202A3A]/5 pb-2"
+                className="font-sans text-xs tracking-[0.22em] uppercase font-bold text-[#202A3A] hover:text-[#C85A32] transition-colors duration-200 border-b border-[#202A3A]/5 pb-2.5 flex items-center justify-between"
               >
-                {link.name}
+                <span>{link.name}</span>
+                <span className="text-[10px] text-[#C85A32]/60">0{navLinks.indexOf(link) + 1}</span>
               </a>
             ))}
           </nav>
